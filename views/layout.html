@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>@model.title</title>	
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<script type="text/javascript" src="javascripts/functions.js"></script>
+</head>
+<body>
+	<div class="container" id="mainContainer">
+		<div class="row">
+			<div id="header" class="col-md-12">
+				@html.block('header')
+			</div>
+		</div>
+		<div class="row">
+			<div id="content" class="col-md-12">
+				@html.block('content')				
+			</div>	
+		</div>
+		<div class="row">
+			<div id="footer" class="col-md-12">
+				@html.block('footer')
+			</div>
+		</div>					
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@html.extend('layout',function(model){
+	@html.block('header',function(model){
+		
+	})
+	@html.block('content',function(model){							
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-3">
+					<img src="images/movieLogo.jpg">
+				</div>
+				<div class="col-md-4 pageTitle">
+					<h1>TouchMovies</h1>
+				</div>
+			</div>	
+			<div class="row" id="movieContent">				
+				<div class="col-md-11 text-center">
+					<h3>@model.info.Title</h3>
+				</div>
+				<div class="col-md-3" id="imgDetail">
+					@if(model.info.Poster!="N/A"){
+						<img src="@model.info.Poster">
+					}else{
+						<img src="images/default.jpg">
+					}
+				</div>
+				<div class="col-md-6">
+					<p><b>Genero:</b> @model.info.Genre</p>
+					<p><b>Actores:</b> @model.info.Actors</p>
+					<p><b>Genero:</b> @model.info.Genre</p>
+					<p><b>Duración:</b> @model.info.Runtime</p>
+					<p><b>Tipo:</b> @model.info.Type</p>
+					<p><b>Reseña:</b> @model.info.Plot</p>
+				</div>
+				<div class="clearfix"></div>				
+				<div class="col-md-3 text-center">												
+					@for(var i=0;i < Math.floor(model.info.imdbRating/2) ; i++){
+						<span class="glyphicon glyphicon-star detailRate" aria-hidden="true"></span>
+					}
+				</div>
+			</div>			
+		</div>	
+	})	
+	@html.block('footer',function(model){
+		
+	})
+})
+

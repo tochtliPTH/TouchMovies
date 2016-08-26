@@ -1,0 +1,40 @@
+@html.extend('layout',function(model){
+	@html.block('header',function(model){
+		
+	})
+	@html.block('content',function(model){							
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 col-md-offset-3">
+					<img src="images/movieLogo.jpg">
+				</div>
+				<div class="col-md-4 pageTitle">
+					<h1>TouchMovies</h1>
+				</div>
+			</div>	
+			<div class="row movieResult">				
+				@model.result.forEach(function(movie){	
+				<div class="containerResult">			
+				<a href="/@movie.imdbID">
+					<div class="col-md-1 col-md-offset-1">
+						@if(movie.Poster!="N/A"){
+							<img src="@movie.Poster">
+						}else{
+							<img src="images/default.jpg">
+						}
+					</div>
+					<div class="col-md-4 ">
+						<div class="movieTitleRes">@movie.Title</div>
+					</div>
+					<div class="clearfix"></div>
+				</a>
+				</div>
+				})			
+			</div>			
+		</div>	
+	})	
+	@html.block('footer',function(model){
+		
+	})
+})
+

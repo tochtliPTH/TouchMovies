@@ -1,0 +1,68 @@
+@html.extend('layout',function(model){
+	@html.block('header',function(model){
+		
+	})
+
+	@html.block('content',function(model){							
+	<div id="container">
+		<div class="row">
+			<div class="col-md-2 col-md-offset-3">
+				<img src="images/movieLogo.jpg">
+			</div>
+			<div class="col-md-4 pageTitle">
+				<h1>TouchMovies</h1>
+			</div>
+		</div>	
+		<div class="row" id="searchContainer">	
+			<form method="POST" action="/" class="form-inline">
+			<div class="form-group col-md-12 text-center">
+				<span class="glyphicon glyphicon-search" aria-hidden="true"></span>			
+				<input type="text" class="form-control" id="title" placeholder="Escribe la Película o Serie" name="title">
+				<button class="btn btn-info">Buscar</button>				
+				</div>
+			</form>
+		</div>			
+		<div class="row" id="sugestContainer">			
+			<div class="col-md-12 text-center">
+				<h3>Te puede interesar</h3>
+			</div>
+			<a href="/@model.recomend[0].imdbID">
+			<div id="topMovie" class="col-md-2 col-md-offset-2 sugestMovie">
+				<p>@model.recomend[0].Title</p>
+				@if(model.recomend[0].Poster=="N/A"){
+					<img src="images/default.jpg">
+				}else{
+					<img src="@model.recomend[0].Poster">
+				}
+			</div>
+			</a>
+			<a href="/@model.recomend[1].imdbID">
+			<div id="topSerie" class="col-md-2 col-md-offset-1 sugestMovie">
+				<p>@model.recomend[1].Title</p>
+				@if(model.recomend[1].Poster=="N/A"){
+					<img src="images/default.jpg">
+				}else{
+					<img src="@model.recomend[1].Poster">
+				}
+			</div>
+			</a>
+			<a href="/@model.recomend[2].imdbID">
+			<div id="randMovie" class="col-md-2 col-md-offset-1 sugestMovie">
+				<p>@model.recomend[2].Title</p>
+				@if(model.recomend[2].Poster=="N/A"){
+					<img src="images/default.jpg">
+				}else{
+					<img src="@model.recomend[2].Poster">
+				}
+			</div>
+			</a>
+			<div class="col-md-12 text-center" id="containerMoreSugest">
+				<button id="moreSugest" class="btn btn-danger">Recomendar mas</button>
+			</div>
+		</div>		
+	</div>
+	})	
+	@html.block('footer',function(model){
+		
+	})
+})
